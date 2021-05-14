@@ -8,26 +8,19 @@
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-8 col-lg-offset- col-md-10 col-md-offset-1">
                 <div class="post-heading">
-                    <div class="tags">
-                        {{ range .Params.tags }}
-                        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
-                            {{ . }}
-                        </a>
-                        {{ end }}
-                    </div>
+
                     <h1>{{ .Title }}</h1>
                     <h2 class="subheading">{{ .Params.subtitle }}</h2>
-                    <span class="meta">
-                        Posted by 
+                    <span class="meta" style="text-align: right;">
                         {{ if .Params.author }}
                             {{ .Params.author }}
                         {{ else }}
                                 {{ .Site.Title }}
                         {{ end }} 
-                        on 
-                        {{ .Date.Format "Monday, January 2, 2006" }}
+                        write on 
+                        {{ .Date.Format "2006-01-02" }}
                         {{ if .Site.Params.page_view_conter }}
                             {{ partial "page_view_counter.html" . }}
                         {{ end }}
@@ -46,12 +39,12 @@
 {{ define "main" }}
 <!-- Post Content -->
 <article>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
 
             <!-- Post Container -->
             <div class="
-                col-lg-11 col-lg-offset-1
+                col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
@@ -88,12 +81,22 @@
             </div>
             <!-- Sidebar Container -->
             <div class="
-                col-lg-11 col-lg-offset-1
+                col-lg-2 col-lg-offset-0
                 col-md-10 col-md-offset-1
                 sidebar-container">
-
+                <section style="margin-top: 100px;">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5 style="text-align: center;" ><a href="/tags/" >Related TAGS</a></h5>
+                    <div class="tags">
+                        {{ range .Params.tags }}
+                        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" title="{{ . }}">
+                            {{ . }}
+                        </a>
+                        {{ end }}
+                    </div>
+                </section>
                 <!-- Featured Tags -->
-                {{ if .Site.Params.featured_tags }}
+                <!-- {{ if .Site.Params.featured_tags }}
                 <section>
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
@@ -108,7 +111,7 @@
                         {{ end }}
                     </div>
                 </section>
-                {{ end }}
+                {{ end }} -->
 
                 <!-- Friends Blog -->
                 {{ if .Site.Params.friends }}

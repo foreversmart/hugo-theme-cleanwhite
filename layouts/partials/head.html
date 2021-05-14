@@ -80,6 +80,10 @@
     <!-- Hux Theme JavaScript -->
     <script src="{{ "js/hux-blog.min.js" | relURL }}"></script>
 
+    <!-- gitalk -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
     <!-- Custom JS -->
     {{ range .Site.Params.custom_js }}
     <script src="{{ . | absURL }}"></script>
